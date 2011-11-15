@@ -12,37 +12,40 @@ import java.util.List;
 
 			List<Kurs> kursy= new ArrayList<Kurs>();
 
-			Osrodki Osrodki1=new Osrodki("Osrodki1", kursanci, kursy);
+			Osrodki Gdansk=new Osrodki("Gdansk", kursanci, kursy);
 
-			Osrodki1.addKursant(1 , "Wojciech Gojski");
-			Osrodki1.addKursant(2 , "Baltazar Ciemny");
-			Osrodki1.addKursant(3 , "Agnieszka Kowalska");
+			Gdansk.addKursant(1 , "Wojciech Gojski");
+			Gdansk.addKursant(2 , "Baltazar Ciemny");
+			Gdansk.addKursant(3 , "Agnieszka Kowalska");
 
-			Osrodki1.addKurs( 1 ,"KursSztaplarka");
-			Osrodki1.addKurs( 9 ,"KursCiezarowka");
-			Osrodki1.addKurs( 11 ,"KursOsobowka");
+			Gdansk.addKurs( 1 ,"KursSztaplarka");
+			Gdansk.addKurs( 9 ,"KursCiezarowka");
+			Gdansk.addKurs( 11 ,"KursOsobowka");
 
-			Osrodki1.printKursy();
-			Osrodki1.printKursanci();
+			Gdansk.printKursy();
+			Gdansk.printKursanci();
 
-			Osrodki1.removeKursant("Baltazar Ciemny");
-			Osrodki1.removeKurs("KursOsobowka");
+			Gdansk.removeKursant("Baltazar Ciemny");
+			Gdansk.removeKurs("KursOsobowka");
 			
-			Osrodki1.printKursy();
-			Osrodki1.printKursanci();
+			Gdansk.printKursy();
+			Gdansk.printKursanci();
 			
-			Osrodki1.editKursant_Nazwisko(3 ,"Agnieszka Kowalska", "Bruce Lee");
-			Osrodki1.editKurs_ID_kurs(1,"KursKoparka", 4);
+			Gdansk.editKursant_Nazwisko(3 ,"Agnieszka Kowalska", "Bruce Lee");
+			Gdansk.editKurs_ID_kurs(1,"KursKoparka", 4);
 			
-			Osrodki1.printKursy();
-			Osrodki1.printKursanci();
+			Gdansk.printKursy();
+			Gdansk.printKursanci();
 			
-			Osrodki1.editKurs_Nazwa(4,"KursKoparka", "KursOdzutowiec");
-			Osrodki1.editKurs_ID_kurs(9,"KursCiezarowka",2);
+			Gdansk.editKurs_Nazwa(4,"KursKoparka", "KursOdzutowiec");
+			Gdansk.editKurs_ID_kurs(9,"KursCiezarowka",2);
 			
-			Osrodki1.printKursy();
-			Osrodki1.printKursanci();
-
-			Osrodki1.printAll();
+			Gdansk.printKursy();
+			Gdansk.printKursanci();
+			
+			Gdansk.editKursant_Id_numer_Nazwisko(3, "Bruce Lee", 69, "Chuck Norris");
+			Gdansk.editKurs_Id_kurs_Nazwa(2,"KursCiezarowka", 5, "KursF1");
+			
+			Gdansk.printAll();
 		}
 	}

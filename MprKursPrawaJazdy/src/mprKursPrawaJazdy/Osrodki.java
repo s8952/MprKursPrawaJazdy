@@ -5,6 +5,7 @@ import java.util.List;
 
 	public class Osrodki {
 
+
 		private String Nazwa;
 		private List<Kursant> kursanci= new ArrayList<Kursant>();
 		private List<Kurs> kursy= new ArrayList<Kurs>();
@@ -89,6 +90,16 @@ import java.util.List;
 			return null;
 
 		}
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		public Kursant searchKursant(int iD_numer, String nazwisko) {
+
+			for (Kursant kursant : kursanci) {
+				if (kursant.getID_numer().equals(iD_numer) & kursant.getNazwisko().equals(nazwisko))
+					return kursant;
+			}
+			return null;
+
+		}
 
 		public Kurs searchKurs(String nazwa){
 
@@ -106,6 +117,17 @@ import java.util.List;
 					return kurs;
 			}
 			return null;
+		}
+		
+		///////////////////////////////////////////////////////////////////////////////////////////////////////
+		public Kurs searchKurs(int iD_kurs, String nazwa) {
+
+			for (Kurs kurs : kursy) {
+				if (kurs.getID_kurs().equals(iD_kurs) & kurs.getNazwa().equals(nazwa))
+					return kurs;
+			}
+			return null;
+
 		}
 
 		public void printKursanci(){
@@ -128,16 +150,26 @@ import java.util.List;
 			kursanci.set(kursanci.indexOf(searchKursant(iD_numer)), new Kursant(new_iD_numer, nazwisko));
 			}
 		
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		public void editKursant_Id_numer_Nazwisko(int iD_numer, String nazwisko, int new_iD_numer, String new_nazwisko) {
+			kursanci.set(kursanci.indexOf(searchKursant(iD_numer, nazwisko)), new Kursant(new_iD_numer, new_nazwisko));
+			}
 		
 		
-				public void editKurs_Nazwa(int id_kurs, String nazwa, String new_nazwa) {
+		
+		public void editKurs_Nazwa(int id_kurs, String nazwa, String new_nazwa) {
 			kursy.set(kursy.indexOf(searchKurs(nazwa)), new Kurs(id_kurs, new_nazwa));
 			}
 
 
 				
-				public void editKurs_ID_kurs(int id_kurs, String nazwa, int new_iD_kurs) {
+		public void editKurs_ID_kurs(int id_kurs, String nazwa, int new_iD_kurs) {
 			kursy.set(kursy.indexOf(searchKurs(id_kurs)), new Kurs(new_iD_kurs, nazwa));
+			}
+				
+			//////////////////////////////////////////////////////////////////////////////////////////////////////	
+		public void editKurs_Id_kurs_Nazwa(int iD_kurs, String nazwa, int new_iD_kurs, String new_nazwa) {
+			kursy.set(kursy.indexOf(searchKurs(iD_kurs, nazwa)), new Kurs(new_iD_kurs, new_nazwa));
 			}
 	
 
@@ -154,7 +186,7 @@ import java.util.List;
 			
 			System.out.println("---------------------------------------------------------------------");
 			System.out.println("---------------------------------------------------------------------");
-			System.out.println("Lista kursantow:");
+			System.out.println("Lista kursantow w");
 
 			for(Kursant kursant: kursanci){
 				kursant.printKursant();
