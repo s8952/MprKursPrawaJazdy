@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="MprKursPrawaJazdyAnt" default="compile">
+
+	<property name="lib" location="lib">
+	</property>
+	<property name="bin" location="bin">
+	</property>
+	<property name="dist" location="dist">
+	</property>
+	<property name="src" location="src">
+	</property>
+	<property name="test" location="test">
+	</property>
+
+	<target name="initiate">
+		<tstamp />
+		<mkdir dir="${bin}" />
+		<mkdir dir="${dist}" />
+		<mkdir dir="${testbin}" />
+	</target>
+
+	<path id="classpath">
+		<fileset dir="${lib}" includes="**/*.jar">
+		</fileset>
+		<pathelement location="${bin}" />
+	</path>
+
+	<target name="compile" depends="initiate">
+		<javac srcdir="${src}" destdir="${bin}" classpathref="classpath" includeantruntime="false">
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar destfile="dist/MprKursPrawaJazdy-${DSTAMP}.jar" basedir="bin">
+		</jar>
+	</target>
+
+	<target name="clean">
+		<delete dir="${bin}">
+		</delete>
+		<delete dir="${dist}">
+		</delete>
+		<delete dir="${testbin}">
+		</delete>
+	</target>
+
+	<target name="run" depends="compile">
+		<java classname="MprKursPrawaJazdy.Main" classpathref="classpath" />
+	</target>
+
+</project>
