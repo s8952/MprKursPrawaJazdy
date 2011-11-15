@@ -52,11 +52,36 @@ import java.util.List;
 		public void removeKursant(String nazwisko) {
 
 			kursanci.remove(searchKursant(nazwisko));
+			
+		}
+			
+		public void removeKursant(int iD_numer) {
+
+			kursanci.remove(searchKursant(iD_numer));
+			
+		}
+		
+		public void removeKursant(int iD_numer, String nazwisko) {
+
+			kursanci.remove(searchKursant(iD_numer, nazwisko));
+			
 		}
 
 		public void removeKurs(String nazwa) {
 
 			kursy.remove(searchKurs(nazwa));
+
+		}
+		
+		public void removeKurs(int iD_kurs) {
+
+			kursy.remove(searchKurs(iD_kurs));
+
+		}
+		
+		public void removeKurs(int iD_kurs, String nazwa) {
+
+			kursy.remove(searchKurs(iD_kurs, nazwa));
 
 		}
 

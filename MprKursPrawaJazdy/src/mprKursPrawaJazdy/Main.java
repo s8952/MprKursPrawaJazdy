@@ -17,16 +17,20 @@ import java.util.List;
 			Gdansk.addKursant(1 , "Wojciech Gojski");
 			Gdansk.addKursant(2 , "Baltazar Ciemny");
 			Gdansk.addKursant(3 , "Agnieszka Kowalska");
+			Gdansk.addKursant(99 , "Zbigniew Lato");
 
 			Gdansk.addKurs( 1 ,"KursSztaplarka");
 			Gdansk.addKurs( 9 ,"KursCiezarowka");
 			Gdansk.addKurs( 11 ,"KursOsobowka");
+			Gdansk.addKurs(33, "KursHulajnoga");
 
 			Gdansk.printKursy();
 			Gdansk.printKursanci();
 
 			Gdansk.removeKursant("Baltazar Ciemny");
-			Gdansk.removeKurs("KursOsobowka");
+			Gdansk.removeKursant(99);
+			Gdansk.removeKurs(11);
+			Gdansk.removeKurs("KursHulajnoga");
 			
 			Gdansk.printKursy();
 			Gdansk.printKursanci();
