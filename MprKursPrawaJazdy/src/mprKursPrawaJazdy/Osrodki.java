@@ -101,8 +101,8 @@ import java.util.List;
 				if (kursant.getNazwisko().equals(nazwisko))
 					return kursant;
 			}
-			return null;
-
+			throw new IllegalStateException("Brak kursanta o nazwisku: " + nazwisko);
+			
 		}
 		
 		public Kursant searchKursant(int iD_numer) {
@@ -111,7 +111,7 @@ import java.util.List;
 				if (kursant.getID_numer().equals(iD_numer))
 					return kursant;
 			}
-			return null;
+			throw new IllegalStateException("Brak kursanta z ID: " + iD_numer);
 
 		}
 		
@@ -121,7 +121,7 @@ import java.util.List;
 				if (kursant.getID_numer().equals(iD_numer) & kursant.getNazwisko().equals(nazwisko))
 					return kursant;
 			}
-			return null;
+			throw new IllegalStateException("Brak kursanta z ID: " + iD_numer+ " i Nazwiskiem: "+nazwisko);
 
 		}
 		
@@ -133,7 +133,7 @@ import java.util.List;
 				if (kurs.getNazwa().equals(nazwa))
 					return kurs;
 			}
-			return null;
+			throw new IllegalStateException("Brak kursu o nazwie: "+nazwa);
 		}
 		
 		public Kurs searchKurs(int iD_kurs){
@@ -142,7 +142,7 @@ import java.util.List;
 				if (kurs.getID_kurs().equals(iD_kurs))
 					return kurs;
 			}
-			return null;
+			throw new IllegalStateException("Brak kursu z ID: " + iD_kurs);
 		}
 		
 		
@@ -152,7 +152,7 @@ import java.util.List;
 				if (kurs.getID_kurs().equals(iD_kurs) & kurs.getNazwa().equals(nazwa))
 					return kurs;
 			}
-			return null;
+			throw new IllegalStateException("Brak kursu z ID: " + iD_kurs+ " o nazwie: "+nazwa);
 
 		}
 		
