@@ -209,13 +209,13 @@ import java.util.List;
 			
 			System.out.println("---------------------------------------------------------------------");
 			System.out.println("---------------------------------------------------------------------");
-			System.out.println("Lista kursantow:");
+			System.out.println("Osrodek: "+getNazwa()+". Lista kursantow :");
 
 			for(Kursant kursant: kursanci){
 				kursant.printKursant();
 			}
 
-			System.out.println("Lista kursow:");
+			System.out.println("Osrodek: "+getNazwa()+". Lista kursow :");
 
 			for(Kurs kurs: kursy){
 				kurs.printKurs();
