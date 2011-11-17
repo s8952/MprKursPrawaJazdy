@@ -23,6 +23,8 @@ import java.util.List;
 			Gdansk.addKurs( 9 ,"KursCiezarowka");
 			Gdansk.addKurs( 11 ,"KursOsobowka");
 			Gdansk.addKurs(33, "KursHulajnoga");
+			
+			try		{
 
 			Gdansk.printKursy();
 			Gdansk.printKursanci();
@@ -49,6 +51,10 @@ import java.util.List;
 			
 			Gdansk.editKursant_Id_numer_Nazwisko(3, "Bruce Lee", 69, "Chuck Norris");
 			Gdansk.editKurs_Id_kurs_Nazwa(2,"KursCiezarowka", 5, "KursF1");
+			
+			}catch (IllegalStateException exception) {
+				exception.printStackTrace();	   
+		}
 			
 			Gdansk.printAll();
 		}

@@ -50,10 +50,10 @@ import java.util.List;
 		}
 
 		public void removeKursant(String nazwisko) {
-
-			kursanci.remove(searchKursant(nazwisko));
 			
-		}
+			kursanci.remove(searchKursant(nazwisko));
+			}
+		
 			
 		public void removeKursant(int iD_numer) {
 
