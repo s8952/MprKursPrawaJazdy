@@ -29,7 +29,8 @@ import java.util.List;
 			Gdansk.printKursy();
 			Gdansk.printKursanci();
 
-			Gdansk.removeKursant("Baltazar Ciemny");
+			Gdansk.removeMany(Gdansk.findKursantByNazwisko("Baltazar Ciemny"));
+			//Gdansk.removeKursant("Baltazar Ciemny");
 			Gdansk.removeKursant(99);
 			Gdansk.removeKurs(11);
 			Gdansk.removeKurs("KursHulajnoga");

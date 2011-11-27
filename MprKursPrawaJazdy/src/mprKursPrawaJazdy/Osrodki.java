@@ -48,24 +48,26 @@ import java.util.List;
 		public void setKursy(List<Kurs> kursy) {
 			this.kursy = kursy;
 		}
+		
+		
 
-		public void removeKursant(String nazwisko) {
+		//public void removeKursant(String nazwisko) {
 			
-			kursanci.remove(searchKursant(nazwisko));
-			}
+			//kursanci.remove(searchKursant(nazwisko));
+			//}
 		
 			
-		public void removeKursant(int iD_numer) {
+		//public void removeKursant(int iD_numer) {
 
-			kursanci.remove(searchKursant(iD_numer));
+			//kursanci.remove(searchKursant(iD_numer));
 			
-		}
+		//}
 		
-		public void removeKursant(int iD_numer, String nazwisko) {
+		//public void removeKursant(int iD_numer, String nazwisko) {
 
-			kursanci.remove(searchKursant(iD_numer, nazwisko));
+			//kursanci.remove(searchKursant(iD_numer, nazwisko));
 			
-		}
+		//}
 
 		public void removeKurs(String nazwa) {
 
@@ -104,6 +106,38 @@ import java.util.List;
 			throw new IllegalStateException("Brak kursanta o nazwisku: " + nazwisko);
 			
 		}
+		
+		
+		
+		
+		
+		
+		public List<Kursant> findKursantByNazwisko(String nazwisko)
+		{
+			List<Kursant> foundedKursanci= new ArrayList<Kursant>();
+			for(Kursant kursant : kursanci)
+			{
+				if(kursant.getNazwisko().equals(nazwisko))
+					foundedKursanci.add(kursant);
+			}
+			return foundedKursanci;
+
+		}
+		
+		
+		
+		
+		
+		
+		
+		public void removeMany(List<Kursant> kursantToRemove)
+		{
+			kursanci.removeAll(kursantToRemove);
+		}
+		
+		
+		
+		
 		
 		public Kursant searchKursant(int iD_numer) {
 
