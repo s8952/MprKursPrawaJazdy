@@ -5,7 +5,6 @@ import java.util.List;
 
 	public class Osrodki {
 
-
 		private String Nazwa;
 		private List<Kursant> kursanci= new ArrayList<Kursant>();
 		private List<Kurs> kursy= new ArrayList<Kurs>();
