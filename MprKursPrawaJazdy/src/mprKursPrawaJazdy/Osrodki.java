@@ -10,7 +10,6 @@ import java.util.List;
 		private List<Kursant> kursanci= new ArrayList<Kursant>();
 		private List<Kurs> kursy= new ArrayList<Kurs>();
 
-
 		public Osrodki(String nazwa, List<Kursant> kursanci, List<Kurs> kursy) {
 
 			this.Nazwa = nazwa;
@@ -29,89 +28,122 @@ import java.util.List;
 			return Nazwa;
 		}
 
-		public void setNazwisko(String nazwa) {
+		public void setNazwa(String nazwa) {
 			Nazwa = nazwa;
 		}
 
-		public List<Kursant> getKursanci() {
-			return kursanci;
-		}
-
-		public void setKursanci(List<Kursant> kursanci) {
-			this.kursanci = kursanci;
-		}
-
+////////////////////////////////////////KURS////////////////////////////////////////
+		
 		public List<Kurs> getKursy() {
 			return kursy;
+		}
+		
+		public void addKurs (int iD_kurs, String nazwa){
+			kursy.add(new Kurs(iD_kurs, nazwa));
+
+		}
+		
+		public void addManyKurs(List<Kurs> kursToAdd)
+		{
+			kursy.addAll(kursToAdd);
 		}
 
 		public void setKursy(List<Kurs> kursy) {
 			this.kursy = kursy;
 		}
 
-		public void removeKursant(String nazwisko) {
-			
-			kursanci.remove(searchKursant(nazwisko));
+		public void removeManyKurs(List<Kurs> kursToRemove)
+		{
+			kursy.removeAll(kursToRemove);
+		}
+		
+		public List<Kurs> findKursByNazwa(String nazwa)
+		{
+			List<Kurs> foundedKursy= new ArrayList<Kurs>();
+			for(Kurs kurs : kursy)
+			{
+				if(kurs.getNazwa().equals(nazwa))
+					foundedKursy.add(kurs);
+			}
+			return foundedKursy;
+
+		}
+		
+		public List<Kurs> findKursByID_Kursu(int iD_kurs)
+		{
+			List<Kurs> foundedKursy= new ArrayList<Kurs>();
+			for(Kurs kurs : kursy)
+			{
+				if(kurs.getID_kurs().equals(iD_kurs))
+					foundedKursy.add(kurs);
+			}
+			return foundedKursy;
+
+		}
+		
+		public Kurs searchKurs(int iD_kurs, String nazwa) {
+
+			for (Kurs kurs : kursy) {
+				if (kurs.getID_kurs().equals(iD_kurs) & kurs.getNazwa().equals(nazwa))
+					return kurs;
+			}
+			throw new IllegalStateException("Brak kursu z ID: " + iD_kurs+ " o nazwie: "+nazwa);
+
+		}
+		
+		public void editManyKursID_kursNazwa(Kurs nastepnykurs, int new_iD_kurs, String new_nazwa){
+			int possition = 0;
+				for(Kurs kurs : kursy){
+					if(kurs.getNazwa().equals(nastepnykurs.getNazwa()) & kurs.getID_kurs().equals(nastepnykurs.getID_kurs())){
+						
+						kursy.set(possition, new Kurs(new_iD_kurs, new_nazwa));
+					}
+					possition++;
+				}
+
 			}
 		
-			
-		public void removeKursant(int iD_numer) {
-
-			kursanci.remove(searchKursant(iD_numer));
-			
+////////////////////////////////////////KURSANT////////////////////////////////////////
+		
+		public List<Kursant> getKursanci() {
+			return kursanci;
 		}
 		
-		public void removeKursant(int iD_numer, String nazwisko) {
-
-			kursanci.remove(searchKursant(iD_numer, nazwisko));
-			
-		}
-
-		public void removeKurs(String nazwa) {
-
-			kursy.remove(searchKurs(nazwa));
-
-		}
-		
-		public void removeKurs(int iD_kurs) {
-
-			kursy.remove(searchKurs(iD_kurs));
-
-		}
-		
-		public void removeKurs(int iD_kurs, String nazwa) {
-
-			kursy.remove(searchKurs(iD_kurs, nazwa));
-
-		}
-
 		public void addKursant (int iD_numer, String nazwisko){
 			kursanci.add(new Kursant(iD_numer, nazwisko));
 
 		}
 
-		public void addKurs (int iD_kurs, String nazwa){
-			kursy.add(new Kurs(iD_kurs, nazwa));
-
+		public void setKursanci(List<Kursant> kursanci) {
+			this.kursanci = kursanci;
 		}
 
-		public Kursant searchKursant(String nazwisko) {
-
-			for (Kursant kursant : kursanci) {
-				if (kursant.getNazwisko().equals(nazwisko))
-					return kursant;
+		public void removeManyKursant(List<Kursant> kursantToRemove)
+		{
+			kursanci.removeAll(kursantToRemove);
+		}
+	
+		public List<Kursant> findKursantByNazwisko(String nazwisko)
+		{
+			List<Kursant> foundedKursanci= new ArrayList<Kursant>();
+			for(Kursant kursant : kursanci)
+			{
+				if(kursant.getNazwisko().equals(nazwisko))
+					foundedKursanci.add(kursant);
 			}
-			throw new IllegalStateException("Brak kursanta o nazwisku: " + nazwisko);
-			
+			return foundedKursanci;
+
 		}
 		
-		public Kursant searchKursant(int iD_numer) {
-
-			for (Kursant kursant : kursanci) {
-				if (kursant.getID_numer().equals(iD_numer))
-					return kursant;
+		public List<Kursant> findKursantByID(int iD_numer)
+		{
+			List<Kursant> foundedKursanci= new ArrayList<Kursant>();
+			for(Kursant kursant : kursanci)
+			{
+				if(kursant.getID_numer().equals(iD_numer))
+					foundedKursanci.add(kursant);
 			}
-			throw new IllegalStateException("Brak kursanta z ID: " + iD_numer);
+			return foundedKursanci;
 
 		}
 		
@@ -125,101 +157,56 @@ import java.util.List;
 
 		}
 		
-		
+		public void editManyKursantID_numerNazwisko(Kursant nastepnykursant, int new_iD_numer, String new_nazwisko){
+			int possition = 0;
+				for(Kursant kursant : kursanci){
+					if(kursant.getNazwisko().equals(nastepnykursant.getNazwisko()) & kursant.getID_numer().equals(nastepnykursant.getID_numer())){
+						
+			kursanci.set(possition, new Kursant(new_iD_numer, new_nazwisko));
+					}
+					possition++;
+				}
 
-		public Kurs searchKurs(String nazwa){
-
-			for (Kurs kurs : kursy) {
-				if (kurs.getNazwa().equals(nazwa))
-					return kurs;
-			}
-			throw new IllegalStateException("Brak kursu o nazwie: "+nazwa);
-		}
-		
-		public Kurs searchKurs(int iD_kurs){
-
-			for (Kurs kurs : kursy) {
-				if (kurs.getID_kurs().equals(iD_kurs))
-					return kurs;
-			}
-			throw new IllegalStateException("Brak kursu z ID: " + iD_kurs);
-		}
-		
-		
-		public Kurs searchKurs(int iD_kurs, String nazwa) {
-
-			for (Kurs kurs : kursy) {
-				if (kurs.getID_kurs().equals(iD_kurs) & kurs.getNazwa().equals(nazwa))
-					return kurs;
-			}
-			throw new IllegalStateException("Brak kursu z ID: " + iD_kurs+ " o nazwie: "+nazwa);
-
-		}
-		
-		
-
-		public void printKursanci(){
-			
-			System.out.println("---------------------------------------------------------------------");
-			System.out.println("Lista kursantow:");
-			for(Kursant kursant: kursanci){
-				kursant.printKursant();
-			}
-		}
-		
-		
-		public void editKursant_Nazwisko(int id_numer, String nazwisko, String new_nazwisko) {
-			kursanci.set(kursanci.indexOf(searchKursant(nazwisko)), new Kursant(id_numer, new_nazwisko));
 			}
 
-		public void editKursant_Id_numer(int iD_numer, String nazwisko, int new_iD_numer) {
-			kursanci.set(kursanci.indexOf(searchKursant(iD_numer)), new Kursant(new_iD_numer, nazwisko));
-			}
-		
-		public void editKursant_Id_numer_Nazwisko(int iD_numer, String nazwisko, int new_iD_numer, String new_nazwisko) {
-			kursanci.set(kursanci.indexOf(searchKursant(iD_numer, nazwisko)), new Kursant(new_iD_numer, new_nazwisko));
-			}
-		
-		
-		
-		public void editKurs_Nazwa(int id_kurs, String nazwa, String new_nazwa) {
-			kursy.set(kursy.indexOf(searchKurs(nazwa)), new Kurs(id_kurs, new_nazwa));
-			}
-
-		public void editKurs_ID_kurs(int id_kurs, String nazwa, int new_iD_kurs) {
-			kursy.set(kursy.indexOf(searchKurs(id_kurs)), new Kurs(new_iD_kurs, nazwa));
-			}
-				
-		public void editKurs_Id_kurs_Nazwa(int iD_kurs, String nazwa, int new_iD_kurs, String new_nazwa) {
-			kursy.set(kursy.indexOf(searchKurs(iD_kurs, nazwa)), new Kurs(new_iD_kurs, new_nazwa));
-			}
-		
-	
+////////////////////////////////////////PRINT////////////////////////////////////////		
 
 		public void printKursy(){
-			
+
 			System.out.println("---------------------------------------------------------------------");
 			System.out.println("Lista kursow:");
-			for(Kurs kurs: kursy){
-				kurs.printKurs();
-			}
-		}
-
-		public void printAll(){
 			
+				for(Kurs kurs: kursy){
+					kurs.printKurs();
+				}
+		}
+		
+		public void printKursanci(){
+
+			System.out.println("---------------------------------------------------------------------");
+			System.out.println("Lista kursantow:");
+				for(Kursant kursant: kursanci){
+					kursant.printKursant();
+				}
+		}
+		
+		public void printAll(){
+
 			System.out.println("---------------------------------------------------------------------");
 			System.out.println("---------------------------------------------------------------------");
 			System.out.println("Osrodek: "+getNazwa()+". Lista kursantow :");
-
-			for(Kursant kursant: kursanci){
-				kursant.printKursant();
-			}
+			
+				for(Kursant kursant: kursanci){
+					kursant.printKursant();
+				}
 
 			System.out.println("Osrodek: "+getNazwa()+". Lista kursow :");
 
-			for(Kurs kurs: kursy){
-				kurs.printKurs();
+				for(Kurs kurs: kursy){
+					kurs.printKurs();
+				}
+			
+			System.out.println("---------------------------------------------------------------------");
 			}
-		}
 
-	}
+		}
