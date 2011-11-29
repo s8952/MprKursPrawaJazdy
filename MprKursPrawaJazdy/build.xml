@@ -10,8 +10,6 @@
 	</property>
 	<property name="src" location="src">
 	</property>
-	<property name="test" location="test">
-	</property>
 
 	<target name="initiate">
 		<tstamp />
@@ -41,8 +39,7 @@
 		</delete>
 		<delete dir="${dist}">
 		</delete>
-		<delete dir="${testbin}">
-		</delete>
+
 	</target>
 
 	<target name="run" depends="compile">
