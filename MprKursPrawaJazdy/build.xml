@@ -17,7 +17,6 @@
 		<tstamp />
 		<mkdir dir="${bin}" />
 		<mkdir dir="${dist}" />
-		<mkdir dir="${testbin}" />
 		<mkdir dir="${lib}" />
 	</target>
 
