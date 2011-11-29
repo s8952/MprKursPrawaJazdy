@@ -27,27 +27,27 @@ import java.util.List;
 			
 			try	{
 			
-			Gdansk.removeManyKursant(Gdansk.findKursantByNazwisko("Baltazar Ciemny"));
-			Gdansk.removeManyKursant(Gdansk.findKursantByID(99));
+			Gdansk.removeWieluKursantow(Gdansk.findKursantaPoNazwisku("Baltazar Ciemny"));
+			Gdansk.removeWieluKursantow(Gdansk.findKursantaPoID(99));
 
-			Gdansk.removeManyKurs(Gdansk.findKursByID_Kursu(11));
-			Gdansk.removeManyKurs(Gdansk.findKursByNazwa("KursHulajnoga"));
+			Gdansk.removeWieleKursow(Gdansk.findKursPoIDKursu(11));
+			Gdansk.removeWieleKursow(Gdansk.findKursPoNazwie("KursHulajnoga"));
 			
 			Gdansk.printKursanci();	
 			Gdansk.printKursy();
 			
-			Gdansk.editManyKursantID_numerNazwisko(Gdansk.searchKursant(3,"Agnieszka Kowalska"),3, "Bruce Lee");
-			Gdansk.editManyKursID_kursNazwa(Gdansk.searchKurs(1,"KursSztaplarka"),4, "KursOdzutowiec");
+			Gdansk.editWieluKursantowPoID_numerNazwisko(Gdansk.searchKursant(3,"Agnieszka Kowalska"),3, "Bruce Lee");
+			Gdansk.editWieleKursowPoID_kursuNazwie(Gdansk.searchKurs(1,"KursSztaplarka"),4, "KursOdzutowiec");
 			
 			Gdansk.printKursanci();	
 			Gdansk.printKursy();
 			
-			Gdansk.editManyKursID_kursNazwa(Gdansk.searchKurs(9,"KursCiezarowka"),2, "KursCiezarowka");
+			Gdansk.editWieleKursowPoID_kursuNazwie(Gdansk.searchKurs(9,"KursCiezarowka"),2, "KursCiezarowka");
 			
 			Gdansk.printKursanci();	
 			Gdansk.printKursy();
 
-			Gdansk.editManyKursID_kursNazwa(Gdansk.searchKurs(2,"KursCiezarowka"),5, "KursF1");
+			Gdansk.editWieleKursowPoID_kursuNazwie(Gdansk.searchKurs(2,"KursCiezarowka"),5, "KursF1");
 
 			}catch (IllegalStateException exception) {
 				exception.printStackTrace();	   

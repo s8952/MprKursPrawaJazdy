@@ -42,21 +42,21 @@ import java.util.List;
 
 		}
 		
-		public void addManyKurs(List<Kurs> kursToAdd)
+		public void addWieleKursow(List<Kurs> kursDoDodania)
 		{
-			kursy.addAll(kursToAdd);
+			kursy.addAll(kursDoDodania);
 		}
 
 		public void setKursy(List<Kurs> kursy) {
 			this.kursy = kursy;
 		}
 
-		public void removeManyKurs(List<Kurs> kursToRemove)
+		public void removeWieleKursow(List<Kurs> kursDoUsuniecia)
 		{
-			kursy.removeAll(kursToRemove);
+			kursy.removeAll(kursDoUsuniecia);
 		}
 		
-		public List<Kurs> findKursByNazwa(String nazwa)
+		public List<Kurs> findKursPoNazwie(String nazwa)
 		{
 			List<Kurs> foundedKursy= new ArrayList<Kurs>();
 			for(Kurs kurs : kursy)
@@ -68,7 +68,7 @@ import java.util.List;
 
 		}
 		
-		public List<Kurs> findKursByID_Kursu(int iD_kurs)
+		public List<Kurs> findKursPoIDKursu(int iD_kurs)
 		{
 			List<Kurs> foundedKursy= new ArrayList<Kurs>();
 			for(Kurs kurs : kursy)
@@ -90,7 +90,7 @@ import java.util.List;
 
 		}
 		
-		public void editManyKursID_kursNazwa(Kurs nastepnykurs, int new_iD_kurs, String new_nazwa){
+		public void editWieleKursowPoID_kursuNazwie(Kurs nastepnykurs, int new_iD_kurs, String new_nazwa){
 			int possition = 0;
 				for(Kurs kurs : kursy){
 					if(kurs.getNazwa().equals(nastepnykurs.getNazwa()) & kurs.getID_kurs().equals(nastepnykurs.getID_kurs())){
@@ -117,12 +117,12 @@ import java.util.List;
 			this.kursanci = kursanci;
 		}
 
-		public void removeManyKursant(List<Kursant> kursantToRemove)
+		public void removeWieluKursantow(List<Kursant> kursantDoUsuniecia)
 		{
-			kursanci.removeAll(kursantToRemove);
+			kursanci.removeAll(kursantDoUsuniecia);
 		}
 	
-		public List<Kursant> findKursantByNazwisko(String nazwisko)
+		public List<Kursant> findKursantaPoNazwisku(String nazwisko)
 		{
 			List<Kursant> foundedKursanci= new ArrayList<Kursant>();
 			for(Kursant kursant : kursanci)
@@ -134,7 +134,7 @@ import java.util.List;
 
 		}
 		
-		public List<Kursant> findKursantByID(int iD_numer)
+		public List<Kursant> findKursantaPoID(int iD_numer)
 		{
 			List<Kursant> foundedKursanci= new ArrayList<Kursant>();
 			for(Kursant kursant : kursanci)
@@ -156,7 +156,7 @@ import java.util.List;
 
 		}
 		
-		public void editManyKursantID_numerNazwisko(Kursant nastepnykursant, int new_iD_numer, String new_nazwisko){
+		public void editWieluKursantowPoID_numerNazwisko(Kursant nastepnykursant, int new_iD_numer, String new_nazwisko){
 			int possition = 0;
 				for(Kursant kursant : kursanci){
 					if(kursant.getNazwisko().equals(nastepnykursant.getNazwisko()) & kursant.getID_numer().equals(nastepnykursant.getID_numer())){
