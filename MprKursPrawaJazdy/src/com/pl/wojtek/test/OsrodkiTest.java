@@ -107,14 +107,17 @@ public class OsrodkiTest {
 	@Test
 	public void testSearchKurs() {
 		assertNotNull(Test.searchKurs(1, "nazwa1"));
-		//assertNull(Test.searchKurs(1,"name"));
-		//assertNull(("Brak kursu z ID:  1  o nazwie: nazwa1"),(Test.searchKurs(1, "nazwa1")));
 		
 	}
 
 	@Test
 	public void testEditWieleKursowPoID_kursuNazwie() {
-		fail("Not yet implemented");
+		Test.editWieleKursowPoID_kursuNazwie(Test.searchKurs(1, "nazwa1"), 2, "new_nazwa");
+		
+		assertFalse(kursy.get(0).getNazwa()=="nazwa1");
+		assertTrue(kursy.get(0).getID_kurs()==2);
+		assertSame("new_nazwa", Test.searchKurs(2, "new_nazwa").getNazwa());
+		assertNotSame("nazwa1", Test.searchKurs(2, "new_nazwa").getNazwa());
 	}
 
 	@Test
@@ -159,7 +162,12 @@ public class OsrodkiTest {
 
 	@Test
 	public void testEditWieluKursantowPoID_numerNazwisko() {
-		fail("Not yet implemented");
+		Test.editWieluKursantowPoID_numerNazwisko(Test.searchKursant(1, "nazwisko1"), 2, "new_nazwisko");
+		
+		assertFalse(kursanci.get(0).getNazwisko()=="nazwisko1");
+		assertTrue(kursanci.get(0).getID_numer()==2);
+		assertSame("new_nazwisko", Test.searchKursant(2, "new_nazwisko").getNazwisko());
+		assertNotSame("nazwisko1", Test.searchKursant(2, "new_nazwisko").getNazwisko());
 	}
 
 }
