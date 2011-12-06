@@ -45,5 +45,14 @@
 	<target name="run" depends="compile">
 		<java classname="MprKursPrawaJazdy.Main" classpathref="classpath" />
 	</target>
+	
+    <target name="run OsrodkiTest">
+    	<mkdir dir="${junit.output.dir}"/>
+    	<junit fork="yes" printsummary="withOutAndErr"> 
+    		<formatter type="xml"/>
+    		<test name="com.pl.wojtek.test.osrodkiTest" todir="${junit.output.dir}"/>
+    		<classpath refid="MprKursPrawaJazdy.classpath"/>
+    	</junit>
+    </target>
 
 </project>
