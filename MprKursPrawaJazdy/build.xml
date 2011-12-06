@@ -50,7 +50,7 @@
     	<mkdir dir="${junit.output.dir}"/>
     	<junit fork="yes" printsummary="withOutAndErr"> 
     		<formatter type="xml"/>
-    		<test name="com.pl.wojtek.test.osrodkiTest" todir="${junit.output.dir}"/>
+    		<test name="com.pl.wojtek.test.OsrodkiTest" todir="${junit.output.dir}"/>
     		<classpath refid="MprKursPrawaJazdy.classpath"/>
     	</junit>
     </target>
