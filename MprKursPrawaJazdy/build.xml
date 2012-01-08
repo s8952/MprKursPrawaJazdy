@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="MprKursPrawaJazdyAnt" default="compile">
+<project name="MprKursPrawaJazdyAnt" default="run OsrodkiTest">
 
 	<property name="lib" location="lib">
 	</property>
@@ -48,7 +48,7 @@
 	
     <target name="run OsrodkiTest">
     	<mkdir dir="${junit.output.dir}"/>
-    	<junit fork="yes" printsummary="withOutAndErr"> 
+    	<junit fork="yes" printsummary="withOutAndErr">
     		<formatter type="xml"/>
     		<test name="com.pl.wojtek.test.OsrodkiTest" todir="${junit.output.dir}"/>
     		<classpath refid="MprKursPrawaJazdy.classpath"/>
