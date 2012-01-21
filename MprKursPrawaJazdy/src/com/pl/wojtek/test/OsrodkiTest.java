@@ -95,6 +95,7 @@ public class OsrodkiTest {
 
 	@Test
 	public void testFindKursPoNazwie() {
+		
 		assertNotNull(Test.findKursPoNazwie("nazwa1"));
 
 	}
