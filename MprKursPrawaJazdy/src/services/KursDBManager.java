@@ -50,7 +50,7 @@ public class KursDBManager {
 		")");
 		}
 
-		addKursStmt = conn.prepareStatement("" +"INSERT INTO Kurs (kurs_nr, nazwa) VALUES (?, ?)");
+		addKursStmt = conn.prepareStatement("" +"INSERT INTO Kurs (kurs_nr, nazwa, Osrodki_id) VALUES (?, ?, ?)");
 
 		getKursStmt = conn.prepareStatement("" +"SELECT * FROM Kurs");
 
@@ -68,20 +68,23 @@ public class KursDBManager {
 		}
 	}
 
-	public void addDBKurs(Kurs k1) {
+	public void addDBKurs(Kurs k1, List <Integer> Osrodki) {
 		try 
 		{
 				addKursStmt.setInt(1, k1.getID_kurs());
 				addKursStmt.setString(2, k1.getNazwa());
 				//addKursStmt.setInt(3, k1.get);
+				
+				for (Integer Id : Osrodki){
+					addKursStmt.setInt(3, Id);
+					}
+				
 				addKursStmt.executeUpdate();
+
 		} 
-		catch (SQLException e) 
-		{
-
-			e.printStackTrace();
+		catch (SQLException e) {
+        e.printStackTrace();
 		}
-
 	}
 
 	public List<Kurs> getAllKurs(){

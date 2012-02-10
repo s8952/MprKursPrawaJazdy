@@ -67,19 +67,20 @@ import services.OsrodkiDBManager;
 	KursDBManager KursDB= new KursDBManager();
 	KursDB.deleteAllKurs();
 	
+	Osrodki Osrodki2 = new Osrodki("Sopot");
+	OsrodkiDB.addOsrodki(Osrodki2);
+	Osrodki Osrodki3 = new Osrodki("Gdynia");
+	OsrodkiDB.addOsrodki(Osrodki3);
 	
 	Kurs kurs1 = new Kurs(21, "KursLopata");
-	KursDB.addDBKurs(kurs1);
+	KursDB.addDBKurs(kurs1, OsrodkiDB.findOsrodkiByNazwa("Sopot"));
 	Kurs kurs2 = new Kurs(22 , "KursWidly");
-	KursDB.addDBKurs(kurs2);
+	KursDB.addDBKurs(kurs2, OsrodkiDB.findOsrodkiByNazwa("Gdynia"));
 	Kurs kurs3 = new Kurs(23 , "KursPomocy");
-	KursDB.addDBKurs(kurs3);
+	KursDB.addDBKurs(kurs3, OsrodkiDB.findOsrodkiByNazwa("Sopot"));
 
 	
-	Osrodki Osrodki2 = new Osrodki("Sopot", kursanci, kursy);
-	OsrodkiDB.addOsrodki(Osrodki2);
-	Osrodki Osrodki3 = new Osrodki("Gdynia", kursanci, kursy);
-	OsrodkiDB.addOsrodki(Osrodki3);
+	
 
 		}
 	}
